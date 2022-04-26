@@ -43,11 +43,10 @@ class _AlbumListState extends State<AlbumList> {
 
   getList(List<Album> albums) {
     return ListView.builder(
+        itemCount: albums.length,
         padding: const EdgeInsets.all(16.0),
-        itemBuilder: (context, i) {
-          if (i.isOdd) return const Divider();
-
-          albums.map((e) => AlbumTile(album: e));
+        itemBuilder: (context, index) {
+          return AlbumTile(albums[index]);
         });
   }
 }

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../model/Album.dart';
 
 class AlbumTile extends StatelessWidget {
-  final Album? album;
+  final Album album;
 
-  const AlbumTile({Key? key, @required this.album}) : super(key: key);
+  AlbumTile(this.album);
 
   @override
   Widget build(BuildContext context) {
-    return Text(album?.title ?? "");
+    return Text(album.title);
   }
 }
