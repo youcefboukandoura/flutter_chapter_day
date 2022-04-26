@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../domain/model/Album.dart';
 
 
+
 class AlbumTile extends StatelessWidget {
   final Album album;
 

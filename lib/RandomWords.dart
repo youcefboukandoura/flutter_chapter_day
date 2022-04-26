@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter_chapter_day/repository/AlbumRepository.dart';
 
-import 'model/Album.dart';
+import 'domain/model/Album.dart';
+import 'domain/repository/AlbumRepository.dart';
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);

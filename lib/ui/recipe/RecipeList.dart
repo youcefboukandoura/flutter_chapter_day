@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_chapter_day/ui/Album/AlbumTile.dart';
 
 import '../../domain/model/Album.dart';
 import '../../domain/repository/AlbumRepository.dart';
-
 
 class AlbumList extends StatefulWidget {
   const AlbumList({Key? key}) : super(key: key);
