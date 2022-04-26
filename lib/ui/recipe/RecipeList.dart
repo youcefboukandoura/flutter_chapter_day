@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chapter_day/domain/model/Recipe.dart';
+import 'package:flutter_chapter_day/domain/model/RecipeResult.dart';
+import 'package:flutter_chapter_day/domain/repository/RecipeRepository.dart';
 import 'package:flutter_chapter_day/ui/Album/AlbumTile.dart';
+import 'package:flutter_chapter_day/ui/recipe/RecipeTile.dart';
 
-import '../../domain/model/Album.dart';
-import '../../domain/repository/AlbumRepository.dart';
 
-class AlbumList extends StatefulWidget {
-  const AlbumList({Key? key}) : super(key: key);
+class RecipeList extends StatefulWidget {
+  const RecipeList({Key? key}) : super(key: key);
 
   @override
-  State<AlbumList> createState() => _AlbumListState();
+  State<RecipeList> createState() => _RecipeListState();
 }
 
-class _AlbumListState extends State<AlbumList> {
-  late Future<List<Album>> albums;
+class _RecipeListState extends State<RecipeList> {
+  late Future<RecipeResult> recipes;
 
   @override
   void initState() {
     super.initState();
-    albums = fetchAlbumList();
+    recipes = fetchRecipes();
   }
 
   @override
@@ -26,11 +28,11 @@ class _AlbumListState extends State<AlbumList> {
   }
 
   getAlbums() {
-    return FutureBuilder<List<Album>>(
-      future: albums,
+    return FutureBuilder<RecipeResult>(
+      future: RecipeResult,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return getList(snapshot.data!);
+          return getList(snapshot.data!.results);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }
@@ -41,12 +43,12 @@ class _AlbumListState extends State<AlbumList> {
     );
   }
 
-  getList(List<Album> albums) {
+  getList(List<Recipe> recipes) {
     return ListView.builder(
-        itemCount: albums.length,
+        itemCount: recipes.length,
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, index) {
-         return AlbumTile(albums[index]);
+          return RecipeTile(recipes[index]);
         });
   }
 }
