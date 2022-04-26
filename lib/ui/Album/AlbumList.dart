@@ -46,7 +46,7 @@ class _AlbumListState extends State<AlbumList> {
         itemCount: albums.length,
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, index) {
-          return AlbumTile(albums[index]);
+         return AlbumTile(albums[index]);
         });
   }
 }

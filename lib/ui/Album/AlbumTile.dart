@@ -9,6 +9,12 @@ class AlbumTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(album.title);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(album.title),
+        const Divider(),
+      ],
+    );
   }
 }
